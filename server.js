@@ -69,6 +69,6 @@ app.listen(PORT,err=>{
     if(err) {
         console.log(err);
     } else {
-        console.log('Listening at localhost:' + PORT);
+        console.log('Listening at port: ' + PORT);
     }
 });
