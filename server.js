@@ -18,11 +18,6 @@ function SaveData(data) {
     });
 }
 
-//Home path responds with home page html
-app.get('/',(req,res) => {
-    res.sendFile(path.join(__dirname, './public/index.html'));
-});
-
 //Notes path responds with notes page html
 app.get('/notes',(req,res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
@@ -63,6 +58,11 @@ app.delete('/api/notes/:id',(req,res) => {
     } else {
         res.status(404).send('Note not found to delete.');
     }
+});
+
+//Any unused route in our domain responds with home page html
+app.get('*',(req,res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
 app.listen(PORT,err=>{
